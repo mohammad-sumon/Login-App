@@ -28,10 +28,10 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Login</Link>
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <Link>Register</Link>
+                <Link to="/signup">Register</Link>
               </li>
             </ul>
           </div>
@@ -42,10 +42,10 @@ const Header = () => {
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link  className="text-white font-bold ">Login</Link>
+              <Link to="/login" className="text-white font-bold ">Login</Link>
             </li>
             <li>
-              <Link  className="text-white font-bold ">Register</Link>
+              <Link to="/signup" className="text-white font-bold ">Register</Link>
             </li>
           </ul>
         </div>
