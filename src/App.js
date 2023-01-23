@@ -1,9 +1,14 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import Particle from './components/Particle';
+import { router } from './Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to login page</h1>
+    <div className="max-w-[1440px] mx-auto">
+      <RouterProvider router={router}>
+        <Particle />
+      </RouterProvider>
     </div>
   );
 }
