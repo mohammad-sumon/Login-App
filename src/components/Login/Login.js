@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const {
@@ -9,8 +10,22 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
+  const {signIn, user} = useContext(AuthContext);
+  const [loginError, setLoginError] = useState('');
+
   const handleLogin = (data) => {
     console.log(data);
+    setLoginError('');
+    signIn(data.email, data.password)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+        alert("Login Successful");
+    })
+    .catch(error => {
+        console.log(error.message);
+        setLoginError(error.message);
+    });
   };
 
   return (
@@ -66,6 +81,9 @@ const Login = () => {
                 type="submit"
                 className="btn w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
               />
+            </div>
+            <div>
+                {loginError && <p className="text-red-600">{loginError}</p>}
             </div>
           </form>
 
