@@ -10,7 +10,7 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const {signIn, user} = useContext(AuthContext);
+  const {signIn} = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
 
   const handleLogin = (data) => {
